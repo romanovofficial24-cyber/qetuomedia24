@@ -1,0 +1,310 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2907
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 <!DOCTYPE html>\
+<html lang="ru">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>QETUO \'97 Official</title>\
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">\
+    <style>\
+        * \{\
+            margin: 0;\
+            padding: 0;\
+            box-sizing: border-box;\
+        \}\
+        \
+        body \{\
+            font-family: 'Orbitron', sans-serif;\
+            background-color: #0a0a0a;\
+            color: #fff;\
+            overflow-x: hidden;\
+            line-height: 1.6;\
+        \}\
+\
+        @keyframes glitch \{\
+            0% \{ text-shadow: 0.05em 0 0 #ff00de, 0 0.05em 0 #00ffea; \}\
+            14% \{ text-shadow: 0.05em 0 0 #ff00de, 0 0.05em 0 #00ffea; \}\
+            15% \{ text-shadow: -0.05em 0 0 #00ffea, 0 -0.05em 0 #ff00de; \}\
+            29% \{ text-shadow: -0.05em 0 0 #00ffea, 0 -0.05em 0 #ff00de; \}\
+            30% \{ text-shadow: 0.05em 0.05em #ff00de, -0.05em -0.05em #00ffea; \}\
+            44% \{ text-shadow: 0.05em 0.05em #ff00de, -0.05em -0.05em #00ffea; \}\
+            45% \{ text-shadow: -0.05em 0.05em #00ffea, 0.05em -0.05em #ff00de; \}\
+            59% \{ text-shadow: -0.05em 0.05em #00ffea, 0.05em -0.05em #ff00de; \}\
+            60% \{ text-shadow: 0 0 0 #ff00de, 0 0 0 #00ffea; \}\
+            100% \{ text-shadow: 0 0 0 #ff00de, 0 0 0 #00ffea; \}\
+        \}\
+\
+        .glitch \{\
+            position: relative;\
+            animation: glitch 2s linear infinite;\
+        \}\
+\
+        #bg-canvas \{\
+            position: fixed;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+            z-index: -1;\
+            opacity: 0.7;\
+        \}\
+\
+        .hero \{\
+            min-height: 100vh;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            text-align: center;\
+            padding: 20px 10px;\
+            background: \
+                linear-gradient(45deg, #1a1a1a 25%, #000000 25%, #000000 50%, #1a1a1a 50%, #1a1a1a 75%, #000000 75%, #000000 100%),\
+                repeating-linear-gradient(-45deg, #111, #111 10px, #222 10px, #222 20px);\
+            background-size: 40px 40px;\
+        \}\
+\
+        .hero-content h1 \{\
+            font-size: 4rem;\
+            font-weight: 900;\
+            text-transform: uppercase;\
+            margin-bottom: 10px;\
+            color: #fff;\
+        \}\
+\
+        .hero-content p \{\
+            font-size: 1.3rem;\
+            font-weight: 400;\
+            color: #00ffea;\
+            margin-bottom: 30px;\
+            text-shadow: 0 0 10px rgba(0, 255, 234, 0.5);\
+        \}\
+\
+        .btn \{\
+            display: inline-block;\
+            padding: 15px 40px;\
+            background: transparent;\
+            color: #ff00de;\
+            border: 2px solid #ff00de;\
+            text-decoration: none;\
+            text-transform: uppercase;\
+            font-weight: 700;\
+            letter-spacing: 2px;\
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);\
+            position: relative;\
+            overflow: hidden;\
+            margin-bottom: 10px;\
+        \}\
+\
+        .btn::before \{\
+            content: '';\
+            position: absolute;\
+            top: 0;\
+            left: -100%;\
+            width: 100%;\
+            height: 100%;\
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 222, 0.2), transparent);\
+            transition: left 0.5s;\
+        \}\
+\
+        .btn:hover::before \{\
+            left: 100%;\
+        \}\
+\
+        .btn:hover \{\
+            background: #ff00de;\
+            color: #000;\
+            box-shadow: 0 0 20px #ff00de, 0 0 40px #00ffea;\
+            transform: scale(1.05) rotate(1deg);\
+        \}\
+\
+        .album-section \{\
+            padding: 50px 20px;\
+            background: #000;\
+            text-align: center;\
+        \}\
+\
+        .album-grid \{\
+            display: grid;\
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\
+            gap: 30px;\
+            margin-top: 40px;\
+        \}\
+\
+        .album-card \{\
+            background: #111;\
+            border: 1px solid #333;\
+            padding: 20px;\
+            border-radius: 10px;\
+            transition: transform 0.3s, box-shadow 0.3s;\
+            position: relative;\
+        \}\
+\
+        .album-card:hover \{\
+            transform: translateY(-10px);\
+            box-shadow: 0 20px 40px rgba(255, 0, 222, 0.2);\
+        \}\
+\
+        .album-card::after \{\
+            content: '';\
+            position: absolute;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+            background: linear-gradient(135deg, transparent, rgba(0, 255, 234, 0.1));\
+            pointer-events: none;\
+        \}\
+\
+        /* \uc0\u1057 \u1090 \u1080 \u1083 \u1080  \u1076 \u1083 \u1103  \u1087 \u1072 \u1085 \u1077 \u1083 \u1080  \u1089 \u1090 \u1088 \u1080 \u1084 \u1080 \u1085 \u1075 \u1072  */\
+        .streaming-panel \{\
+            display: flex;\
+            gap: 10px;\
+            justify-content: center;\
+            flex-wrap: wrap;\
+            margin-top: 15px;\
+        \}\
+\
+        .stream-btn \{\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            padding: 8px 12px;\
+            border-radius: 20px;\
+            text-decoration: none;\
+            font-size: 0.8rem;\
+            font-weight: 700;\
+            letter-spacing: 1px;\
+            transition: transform 0.2s, box-shadow 0.2s;\
+            min-width: 110px;\
+        \}\
+\
+        .stream-btn:hover \{\
+            transform: scale(1.05);\
+        \}\
+\
+        .yandex \{ background: #f8d01d; color: #000; \}\
+        .vk \{ background: #4f759f; color: #fff; \}\
+        .apple \{ background: #000; color: #fff; \}\
+        .spotify \{ background: #1db954; color: #000; \}\
+\
+        footer \{\
+            background: #000;\
+            color: #555;\
+            text-align: center;\
+            padding: 30px 20px;\
+            font-size: 0.9rem;\
+            border-top: 1px solid #ff00de;\
+        \}\
+\
+        @media (max-width: 768px) \{\
+            .hero-content h1 \{ font-size: 2.5rem; \}\
+            .hero-content p \{ font-size: 1.1rem; \}\
+            .btn \{ width: 100%; padding: 15px 20px; max-width: 300px; \}\
+            .album-grid \{ grid-template-columns: 1fr; gap: 20px; \}\
+            .streaming-panel \{ gap: 8px; \}\
+            .stream-btn \{ padding: 6px 10px; font-size: 0.75rem; min-width: 90px; \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+\
+    <canvas id="bg-canvas"></canvas>\
+\
+    <section class="hero">\
+        <div class="hero-content">\
+            <h1 class="glitch">QETUO</h1>\
+            <p>\uc0\u1059 \u1083 \u1080 \u1095 \u1085 \u1072 \u1103  \u1087 \u1088 \u1072 \u1074 \u1076 \u1072 . \u1043 \u1088 \u1103 \u1079 \u1085 \u1099 \u1081  \u1079 \u1074 \u1091 \u1082 . \u1053 \u1091 \u1083 \u1077 \u1074 \u1072 \u1103  \u1092 \u1080 \u1083 \u1100 \u1090 \u1088 \u1072 \u1094 \u1080 \u1103 .</p>\
+            <a href="#album" class="btn">\uc0\u1057 \u1083 \u1091 \u1096 \u1072 \u1090 \u1100  \u1072 \u1083 \u1100 \u1073 \u1086 \u1084 </a>\
+            <a href="#projects" class="btn">\uc0\u1060 \u1086 \u1090 \u1086 -\u1087 \u1088 \u1086 \u1077 \u1082 \u1090 \u1099 </a>\
+        </div>\
+    </section>\
+\
+    <section id="album" class="album-section">\
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #ff00de;">\uc0\u1055 \u1086 \u1089 \u1083 \u1077 \u1076 \u1085 \u1080 \u1081  \u1072 \u1083 \u1100 \u1073 \u1086 \u1084 </h2>\
+        <p style="color: #aaa; max-width: 600px; margin: 0 auto 40px;">\uc0\u1058 \u1088 \u1077 \u1082 \u1080 , \u1079 \u1072 \u1087 \u1080 \u1089 \u1072 \u1085 \u1085 \u1099 \u1077  \u1074  \u1079 \u1072 \u1073 \u1088 \u1086 \u1096 \u1077 \u1085 \u1085 \u1099 \u1093  \u1087 \u1088 \u1086 \u1084 \u1079 \u1086 \u1085 \u1072 \u1093 . \u1047 \u1074 \u1091 \u1082 , \u1082 \u1086 \u1090 \u1086 \u1088 \u1099 \u1081  \u1088 \u1077 \u1078 \u1077 \u1090  \u1073 \u1077 \u1090 \u1086 \u1085 .</p>\
+        \
+        <div class="album-grid">\
+            <!-- \uc0\u1058 \u1088 \u1077 \u1082  1 -->\
+            <div class="album-card">\
+                <h3>\uc0\u1058 \u1088 \u1077 \u1082  1: "\u1040 \u1089 \u1084 \u1086 \u1083 \u1086 \u1074  99"</h3>\
+                <p style="color: #777; font-size: 0.9rem;">\uc0\u1054 \u1076 \u1080 \u1085 \u1086 \u1095 \u1077 \u1089 \u1090 \u1074 \u1086  \u1085 \u1072  \u1074 \u1077 \u1088 \u1093 \u1085 \u1080 \u1093  \u1101 \u1090 \u1072 \u1078 \u1072 \u1093 , \u1082 \u1086 \u1075 \u1076 \u1072  \u1074 \u1085 \u1080 \u1079 \u1091  \u1082 \u1080 \u1087 \u1080 \u1090  \u1078 \u1080 \u1079 \u1085 \u1100 , \u1082 \u1086 \u1090 \u1086 \u1088 \u1086 \u1081  \u1085 \u1077 \u1090  \u1076 \u1083 \u1103  \u1090 \u1077 \u1073 \u1103 .</p>\
+                <div class="streaming-panel">\
+                    <a href="#" class="stream-btn yandex">\uc0\u9654  \u1071 \u1085 \u1076 \u1077 \u1082 \u1089  \u1052 \u1091 \u1079 \u1099 \u1082 \u1072 </a>\
+                    <a href="#" class="stream-btn vk">\uc0\u9654  VK \u1052 \u1091 \u1079 \u1099 \u1082 \u1072 </a>\
+                    <a href="#" class="stream-btn apple">\uc0\u9654  Apple Music</a>\
+                    <a href="#" class="stream-btn spotify">\uc0\u9654  Spotify</a>\
+                </div>\
+            </div>\
+\
+            <!-- \uc0\u1058 \u1088 \u1077 \u1082  2 -->\
+            <div class="album-card">\
+                <h3>\uc0\u1058 \u1088 \u1077 \u1082  2: "\u1053 \u1077 \u1086 \u1085 \u1086 \u1074 \u1099 \u1081  \u1044 \u1086 \u1078 \u1076 \u1100 "</h3>\
+                <p style="color: #777; font-size: 0.9rem;">\uc0\u1041 \u1080 \u1090 \u1099 , \u1087 \u1088 \u1086 \u1073 \u1080 \u1074 \u1072 \u1102 \u1097 \u1080 \u1077  \u1083 \u1086 \u1073 \u1086 \u1074 \u1086 \u1077  \u1089 \u1090 \u1077 \u1082 \u1083 \u1086  \u1090 \u1072 \u1082 \u1089 \u1080  \u1074  \u1095 \u1072 \u1089  \u1087 \u1080 \u1082 .</p>\
+                <div class="streaming-panel">\
+                    <a href="#" class="stream-btn yandex">\uc0\u9654  \u1071 \u1085 \u1076 \u1077 \u1082 \u1089  \u1052 \u1091 \u1079 \u1099 \u1082 \u1072 </a>\
+                    <a href="#" class="stream-btn vk">\uc0\u9654  VK \u1052 \u1091 \u1079 \u1099 \u1082 \u1072 </a>\
+                    <a href="#" class="stream-btn apple">\uc0\u9654  Apple Music</a>\
+                    <a href="#" class="stream-btn spotify">\uc0\u9654  Spotify</a>\
+                </div>\
+            </div>\
+\
+            <!-- \uc0\u1058 \u1088 \u1077 \u1082  3 -->\
+            <div class="album-card">\
+                <h3>\uc0\u1058 \u1088 \u1077 \u1082  3: "\u1057 \u1087 \u1072 \u1083 \u1100 \u1085 \u1099 \u1081  \u1056 \u1072 \u1081 \u1086 \u1085 "</h3>\
+                <p style="color: #777; font-size: 0.9rem;">\uc0\u1043 \u1080 \u1084 \u1085  \u1087 \u1072 \u1085 \u1077 \u1083 \u1100 \u1085 \u1099 \u1093  \u1076 \u1077 \u1074 \u1103 \u1090 \u1080 \u1101 \u1090 \u1072 \u1078 \u1077 \u1082  \u1080  \u1088 \u1078 \u1072 \u1074 \u1099 \u1093  \u1082 \u1072 \u1095 \u1077 \u1083 \u1077 \u1081 .</p>\
+                <div class="streaming-panel">\
+                    <a href="#" class="stream-btn yandex">\uc0\u9654  \u1071 \u1085 \u1076 \u1077 \u1082 \u1089  \u1052 \u1091 \u1079 \u1099 \u1082 \u1072 </a>\
+                    <a href="#" class="stream-btn vk">\uc0\u9654  VK \u1052 \u1091 \u1079 \u1099 \u1082 \u1072 </a>\
+                    <a href="#" class="stream-btn apple">\uc0\u9654  Apple Music</a>\
+                    <a href="#" class="stream-btn spotify">\uc0\u9654  Spotify</a>\
+                </div>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <section id="projects" class="album-section" style="background: #0a0a0a;">\
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #00ffea;">\uc0\u1042 \u1080 \u1079 \u1091 \u1072 \u1083 \u1100 \u1085 \u1099 \u1077  \u1087 \u1088 \u1086 \u1077 \u1082 \u1090 \u1099 </h2>\
+        <p style="color: #aaa; max-width: 600px; margin: 0 auto 40px;">\uc0\u1069 \u1089 \u1090 \u1077 \u1090 \u1080 \u1082 \u1072  VHS, 16\u1084 \u1084  \u1087 \u1083 \u1077 \u1085 \u1082 \u1080  \u1080  \u1078 \u1077 \u1089 \u1090 \u1082 \u1086 \u1075 \u1086  \u1082 \u1086 \u1085 \u1090 \u1088 \u1086 \u1074 \u1086 \u1075 \u1086  \u1089 \u1074 \u1077 \u1090 \u1072 .</p>\
+        \
+        <div class="album-grid">\
+            <div class="album-card">\
+                <h3>\uc0\u1055 \u1088 \u1086 \u1077 \u1082 \u1090  "\u1043 \u1045 \u1058 \u1058 \u1054 : \u1054 \u1058 \u1050 \u1056 \u1067 \u1058 \u1067 \u1049  \u1048 \u1057 \u1061 \u1054 \u1044 "</h3>\
+                <p style="color: #777; font-size: 0.9rem;">\uc0\u1057 \u1077 \u1088 \u1080 \u1103  \u1089 \u1085 \u1080 \u1084 \u1082 \u1086 \u1074  \u1085 \u1072  \u1087 \u1088 \u1086 \u1089 \u1088 \u1086 \u1095 \u1077 \u1085 \u1085 \u1091 \u1102  \u1087 \u1083 \u1077 \u1085 \u1082 \u1091  \u1074  \u1088 \u1072 \u1081 \u1086 \u1085 \u1077  \u1070 \u1078 \u1085 \u1099 \u1081  \u1087 \u1086 \u1088 \u1090 .</p>\
+                <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">\uc0\u1057 \u1084 \u1086 \u1090 \u1088 \u1077 \u1090 \u1100 </a>\
+            </div>\
+            <div class="album-card">\
+                <h3>\uc0\u1055 \u1088 \u1086 \u1077 \u1082 \u1090  "\u1057 \u1042 \u1045 \u1058 \u1054 \u1060 \u1054 \u1056 "</h3>\
+                <p style="color: #777; font-size: 0.9rem;">\uc0\u1050 \u1086 \u1088 \u1086 \u1090 \u1082 \u1086 \u1084 \u1077 \u1090 \u1088 \u1072 \u1078 \u1085 \u1099 \u1081  \u1072 \u1085 \u1080 \u1084 \u1080 \u1088 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1081  \u1082 \u1083 \u1080 \u1087 , \u1089 \u1075 \u1077 \u1085 \u1077 \u1088 \u1080 \u1088 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1081  \u1085 \u1077 \u1081 \u1088 \u1086 \u1089 \u1077 \u1090 \u1100 \u1102 .</p>\
+                <a href="#" class="btn" style="padding: 10px 20px; font-size: 0.8rem;">Play</a>\
+            </div>\
+        </div>\
+    </section>\
+\
+    <footer>\
+        <p>\'a9 2026 QETUO. All rights distort. | Booking: management@qetuo.ru</p>\
+    </footer>\
+\
+    <script>\
+        const canvas = document.getElementById('bg-canvas');\
+        const ctx = canvas.getContext('2d');\
+        canvas.width = window.innerWidth;\
+        canvas.height = window.innerHeight;\
+\
+        let lines = [];\
+        const lineCount = 15;\
+\
+        function createLines() \{\
+            for (let i = 0; i < lineCount; i++) \{\
+                lines.push(\{\
+                    x: Math.random() * canvas.width,\
+                    y: Math.random() * canvas.height,\
+                    x2: Math.random() * canvas.width,\
+                    y2: Math.random() * canvas.height,\
+                    speed: Math.random() * 0.5 + 0.2,\
+                    color: i}
